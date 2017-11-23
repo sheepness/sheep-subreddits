@@ -8,8 +8,10 @@ var IMAGE_ID = 0;
 
 // chosen from top posts in last month from these
 var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iamverysmart","2meirl4meirl",
-  	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","mypeopleneedme","thisismylifenow",
-    "wheredidthesodago","youdontsurf"];
+  	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","thisismylifenow",
+    "PeopleFuckingDying","youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetary","deepfriedmemes",
+    "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
+    "maliciouscompliance"];
 
 function init() {
   promise = fetchContent(SUBREDDITS[Math.floor(Math.random()*SUBREDDITS.length)]).then(function(value) {
