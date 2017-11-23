@@ -56,7 +56,7 @@ function getContent() {
       setContent();
     } else {
       guessed = true;
-      alert("oops couldn't find anything");
+      document.getElementById("image").innerHTML = "oops couldn't find anything";
       setTimeout(function() {
         getContent();
       },2000);
