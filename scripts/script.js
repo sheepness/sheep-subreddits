@@ -12,7 +12,7 @@ function filterDomains(listing) {
   return filtered;
 }
 ;var items = [];
-var guessed = false;
+var guessed = true;
 var score = 0;
 var TEST = [["a",1],["b",2],["c",3],["d",4],["e",5],["f",6],["g",7],["h",8]];
 var LISTING = {};
@@ -21,10 +21,21 @@ var IMAGE_ID = 0;
 
 // chosen from top posts in last month from these
 var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iamverysmart","2meirl4meirl",
-  	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","mypeopleneedme","thisismylifenow",
-    "wheredidthesodago","youdontsurf"];
+  	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","thisismylifenow",
+    "PeopleFuckingDying","youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetary","deepfriedmemes",
+    "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
+    "maliciouscompliance","hmmm","atbge"];
 
 function init() {
+  //while (true) {
+    //if (guessed) {
+      getContent();
+    //}
+  //}
+}
+
+function getContent() {
+  guessed = false;
   promise = fetchContent(SUBREDDITS[Math.floor(Math.random()*SUBREDDITS.length)]).then(function(value) {
     LISTING = value.data.children;
     //console.log(LISTING);
@@ -44,7 +55,11 @@ function init() {
       IMAGE_ID = pickedData.id;
       setContent();
     } else {
-      document.getElementById("image").innerHTML = "oops couldn't find anything";
+      guessed = true;
+      alert("oops couldn't find anything");
+      setTimeout(function() {
+        getContent();
+      },2000);
     }
   });
 }
@@ -65,7 +80,6 @@ function setContent() {
     for (i=0; i<DUPLICATE_LISTING.length; i++) {
       if (DUPLICATE_LISTING[i].data.score>100)
         items.push(DUPLICATE_LISTING[i].data.subreddit);
-      guessed = false;
       document.getElementById("answers").innerHTML = "???";
     }
   });
@@ -85,9 +99,14 @@ function guess() {
       guessed = true;
       score++;
       document.getElementById("score").innerHTML = score;
+      break;
     }
   }
   document.getElementById("guess").value = "";
+  if (guessed)
+  setTimeout(function() {
+    getContent();
+  },2000);
 }
 ;function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
