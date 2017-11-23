@@ -69,6 +69,13 @@ function setContent() {
         items.push(DUPLICATE_LISTING[i].data.subreddit);
       document.getElementById("answers").innerHTML = "???";
     }
+    if (items.length==0) {
+      guessed = true;
+      document.getElementById("image").innerHTML = "oops couldn't find anything";
+      setTimeout(function() {
+        getContent();
+      },2000);
+    }
   });
 }
 
