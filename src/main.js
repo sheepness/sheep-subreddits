@@ -9,9 +9,9 @@ var IMAGE_ID = 0;
 // chosen from top posts in last month from these
 var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iamverysmart","2meirl4meirl",
   	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","thisismylifenow",
-    "PeopleFuckingDying","youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetery","deepfriedmemes",
+    "youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetery","deepfriedmemes",
     "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
-    "maliciouscompliance","hmmm","atbge"];
+    "maliciouscompliance","hmmm","atbge","bonehurtingjuice","sbubby","fellowkids"];
 
 function init() {
   //while (true) {
