@@ -11,8 +11,8 @@ var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iam
   	"insanepeoplefacebook","therewasanattempt","mildlyinfuriating","coaxedintoasnafu","madlads","crappydesign","thisismylifenow",
     "youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetery","deepfriedmemes",
     "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
-    "maliciouscompliance","hmmm","atbge","bonehurtingjuice","sbubby","fellowkids"];
-
+    "maliciouscompliance","hmmm","atbge","bonehurtingjuice","sbubby","fellowkids","im14andthisisdeep",
+    "dataisbeautiful","oldschoolcool","forwardsfromgrandma"];
 function init() {
   //while (true) {
     //if (guessed) {
