@@ -1,2 +1,2 @@
-# GUESS THE SUBREDDIT
-[Try it out](https://sheepmolestor.github.io/sheep-subreddits/)
+# sheep-subreddits
+[guess the subreddit](https://sheepmolestor.github.io/sheep-subreddits/)
