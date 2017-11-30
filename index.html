@@ -5,26 +5,34 @@
   <meta name="viewport" content="width=device-width">
   <title id="title">Guess the Subreddit</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/e3a36dc0e7.js"></script>
 </head>
 <body onLoad="init()">
-  <script src="scripts/script.min.js"></script>
-  <div id="header">
-    <h1>Guess the Subreddit</h1>
-    <h3>a game made by <a target="_blank" href="https://sheepmolestor.github.io">sheepmolestor</a></h3>
-  </div>
+  <script src="scripts/script.js"></script>
+  <header>
+      <div class="headertitle">
+          <i class="fa fa-reddit" aria-hidden="true"></i>
+          GUESS THE SUBREDDIT
+      </div>
+      a game by <a href="https://reddit.com/u/sheepmolestor">u/sheepmolestor</a> | design: <a href="https://reddit.com/u/needsadjustment">u/needsadjustment</a>
+    </footer>
+    </header>
   <div id="container">
-    <div id="image">
-    </div>
-    <div id="input">
-      <input id="guess" type="text" onkeydown="textSubmit(this)" placeholder="Type here" />
-      <input name="not a typo" type="button" onclick="guess()" value="Sumbit" />
+    <input type="checkbox" id="zoomCheck">
+    <label for="zoomCheck">
+      <div id="image"></div>
+    </label>
+      <div id="input">
+        <input id="guess" type="text" onkeydown="textSubmit(this)" placeholder="Enter a subreddit"/>
+        <input name="Submit" type="button" onclick="guess()" value="Submit"/>
+      </div>
       <div id="score">
-        0
+          Score: 0
+      </div>
+      <br>
+      <div id="answers">
+        ???
       </div>
     </div>
-    <div id="answers">
-      ???
-    </div>
-  </div>
-</body>
+  </body>
 </html>
