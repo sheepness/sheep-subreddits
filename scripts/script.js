@@ -23,10 +23,10 @@ function filterNsfw(listing) {
       }
   return filtered;
 }
-;var items = [];
+
+var items = [];
 var guessed = true;
 var score = 0;
-var TEST = [["a",1],["b",2],["c",3],["d",4],["e",5],["f",6],["g",7],["h",8]];
 var LISTING = {};
 var DUPLICATE_LISTING = {};
 var IMAGE_ID = 0;
@@ -75,6 +75,7 @@ var SUBREDDITS = [
   "boottoobig",
   "niceguys",
   "evilbuildings"];
+
 function init() {
   getContent();
 }
@@ -102,9 +103,7 @@ function getContent() {
     } else {
       guessed = true;
       document.getElementById("image").innerHTML = "<error>Please Refresh</error>";
-      setTimeout(function() {
-        getContent();
-      },2000);
+      setTimeout(function() {getContent();},2000);
     }
   });
 }
@@ -130,9 +129,7 @@ function setContent() {
     if (items.length==0) {
       guessed = true;
       document.getElementById("image").innerHTML = "<error>Please Refresh</error>";
-      setTimeout(function() {
-        getContent();
-      },2000);
+      setTimeout(function() {getContent();},2000);
     }
   });
 }
