@@ -12,7 +12,8 @@ var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iam
     "youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetery","deepfriedmemes",
     "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
     "maliciouscompliance","hmmm","atbge","bonehurtingjuice","sbubby","fellowkids","im14andthisisdeep",
-    "dataisbeautiful","oldschoolcool","forwardsfromgrandma"];
+    "dataisbeautiful","oldschoolcool","forwardsfromgrandma","perfecttiming","notmyjob","boottoobig","niceguys",
+    "evilbuildings"];
 function init() {
   //while (true) {
     //if (guessed) {
@@ -35,10 +36,11 @@ function getContent() {
 
   Promise.all(huh).then(function() {
     LISTING = filterDomains(LISTING);
+    LISTING = filterNsfw(LISTING); // maybe add nsfw mode?
     if (LISTING.length!=0) {
       picked = Math.floor((Math.random() * LISTING.length));
       pickedData = LISTING[picked].data;
-      document.getElementById("image").innerHTML = "<img src=\""+pickedData.url+"\" style=\"max-height:400px; max-width:auto;\"/>";
+      document.getElementById("image").innerHTML = "<img src=\""+pickedData.url+"\" style=\"max-width:80%; max-height:auto;\"/>";
       IMAGE_ID = pickedData.id;
       setContent();
     } else {
@@ -89,7 +91,7 @@ function guess() {
   input = document.getElementById("guess").value;
   for (i=0; i<items.length; i++) {
     if (items[i].toUpperCase()===input.toUpperCase() && !guessed) {
-      document.getElementById("answers").innerHTML = "/r/"+items[i];
+      document.getElementById("answers").innerHTML = "<a target=\"_blank\" href=\"https://www.reddit.com/r/"+items[i]+"/\">/r/"+items[i]+"</a>";
       guessed = true;
       score++;
       document.getElementById("score").innerHTML = score;

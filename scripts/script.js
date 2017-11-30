@@ -11,6 +11,16 @@ function filterDomains(listing) {
       }
   return filtered;
 }
+
+function filterNsfw(listing) {
+  var filtered = [];
+  for (i=0; i<listing.length; i++)
+      if (!listing[i].data.over_18) {
+        filtered.push(listing[i]);
+        continue;
+      }
+  return filtered;
+}
 ;var items = [];
 var guessed = true;
 var score = 0;
@@ -25,7 +35,8 @@ var SUBREDDITS = ["woahdude","aww","nevertellmetheodds","mildlyinteresting","iam
     "youdontsurf","cringepics","iamverybadass","quityourbullshit","oopsdidntmeanto","comedycemetery","deepfriedmemes",
     "murderedbywords","oldpeoplefacebook","indianpeoplefacebook","wholesomememes","justneckbeardthings","dontdeadopeninside","thathappened",
     "maliciouscompliance","hmmm","atbge","bonehurtingjuice","sbubby","fellowkids","im14andthisisdeep",
-    "dataisbeautiful","oldschoolcool","forwardsfromgrandma"];
+    "dataisbeautiful","oldschoolcool","forwardsfromgrandma","perfecttiming","notmyjob","boottoobig","niceguys",
+    "evilbuildings"];
 function init() {
   //while (true) {
     //if (guessed) {
@@ -48,10 +59,11 @@ function getContent() {
 
   Promise.all(huh).then(function() {
     LISTING = filterDomains(LISTING);
+    LISTING = filterNsfw(LISTING); // maybe add nsfw mode?
     if (LISTING.length!=0) {
       picked = Math.floor((Math.random() * LISTING.length));
       pickedData = LISTING[picked].data;
-      document.getElementById("image").innerHTML = "<img src=\""+pickedData.url+"\" style=\"max-height:400px; max-width:auto;\"/>";
+      document.getElementById("image").innerHTML = "<img src=\""+pickedData.url+"\" style=\"max-width:80%; max-height:auto;\"/>";
       IMAGE_ID = pickedData.id;
       setContent();
     } else {
@@ -102,7 +114,7 @@ function guess() {
   input = document.getElementById("guess").value;
   for (i=0; i<items.length; i++) {
     if (items[i].toUpperCase()===input.toUpperCase() && !guessed) {
-      document.getElementById("answers").innerHTML = "/r/"+items[i];
+      document.getElementById("answers").innerHTML = "<a target=\"_blank\" href=\"https://www.reddit.com/r/"+items[i]+"/\">/r/"+items[i]+"</a>";
       guessed = true;
       score++;
       document.getElementById("score").innerHTML = score;
@@ -115,7 +127,9 @@ function guess() {
     getContent();
   },2000);
 }
-;function fetchContent(name) {
+;// doesn't work on some browsers, need to switch to whatwg-fetch but don't know how without using import
+
+function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
   url = url.concat(name, '/top.json?sort=top&t=month');
 
@@ -131,7 +145,7 @@ function guess() {
 function fetchDuplicates(id) {
   url = 'https://www.reddit.com/duplicates/';
   url = url.concat(id,".json");
-  
+
   return fetch(url)
     .then(function (response) {
       if (response.status >= 400) {

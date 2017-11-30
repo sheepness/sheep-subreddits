@@ -1,10 +1,22 @@
+#header {
+  font-family: Georgia, serif;
+  position: absolute;
+  height:20%;
+  width:100%;
+}
 #container {
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background-color: #66c2ff;
+  top: 20%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-color: #f7f7f7;
+  font-family: Verdana, Geneva, sans-serif;
+}
+#image {
+  height: 80%;
+  overflow-y:scroll;
+	overflow-x:hidden;
 }
 html, body {
   width:  100%;
@@ -13,7 +25,9 @@ html, body {
   margin: 0px;
   text-align: center;
 }
-
+input{
+  font-family: Verdana, Geneva, sans-serif;
+}
 #answers {
   display: inline-block;
   text-align: center;
@@ -21,7 +35,5 @@ html, body {
 }
 
 #score {
-  position: absolute;
-  top:0;
-  right:0;
+  display: inline-block;
 }

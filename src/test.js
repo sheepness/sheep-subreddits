@@ -1,3 +1,5 @@
+// doesn't work on some browsers, need to switch to whatwg-fetch but don't know how without using import
+
 function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
   url = url.concat(name, '/top.json?sort=top&t=month');
@@ -14,7 +16,7 @@ function fetchContent(name) {
 function fetchDuplicates(id) {
   url = 'https://www.reddit.com/duplicates/';
   url = url.concat(id,".json");
-  
+
   return fetch(url)
     .then(function (response) {
       if (response.status >= 400) {

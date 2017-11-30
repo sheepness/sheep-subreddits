@@ -11,3 +11,13 @@ function filterDomains(listing) {
       }
   return filtered;
 }
+
+function filterNsfw(listing) {
+  var filtered = [];
+  for (i=0; i<listing.length; i++)
+      if (!listing[i].data.over_18) {
+        filtered.push(listing[i]);
+        continue;
+      }
+  return filtered;
+}
