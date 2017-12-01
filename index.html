@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <title id="title">Guess the Subreddit</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/e3a36dc0e7.js"></script>
 </head>
 <body onLoad="init()">
   <script src="scripts/script.min.js"></script>
@@ -14,7 +15,6 @@
           GUESS THE SUBREDDIT
       </div>
       a game by <a href="https://reddit.com/u/sheepmolestor">u/sheepmolestor</a> | design: <a href="https://reddit.com/u/needsadjustment">u/needsadjustment</a>
-    </footer>
     </header>
   <div id="container">
       <div id="imageContainer">
@@ -24,7 +24,7 @@
         </label>
       </div>
       <div id="input">
-        <input id="guess" type="text" onkeydown="textSubmit(this)" placeholder="Enter a subreddit"/>
+        <input id="guess" type="text" autocomplete="off" placeholder="Enter a subreddit"/>
         <input name="Submit" type="button" onclick="guess()" value="Submit"/>
         <div id="answers">
         </div>

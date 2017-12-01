@@ -28,6 +28,7 @@ var LISTING = {};
 var DUPLICATE_LISTING = {};
 var IMAGE_ID = 0;
 var strike_count = 0;
+var disabled = true;
 
 // Monthly Top Posts from these subreddits
 var SUBREDDITS = [
@@ -75,6 +76,11 @@ var SUBREDDITS = [
   "evilbuildings"];
 
 function init() {
+  document.onkeydown = function(event) {
+    if (event.key === 'Enter') {
+      guess();
+    }
+  };
   getContent();
 }
 
@@ -100,7 +106,7 @@ function getContent() {
       setContent();
     } else {
       guessed = true;
-      document.getElementById("image").innerHTML = "<error>Please Refresh</error>";
+      document.getElementById("image").innerHTML = "<error>Please Refresh or disable tracking protection</error>";
       setTimeout(function() {getContent();},2000);
     }
   });
@@ -132,13 +138,11 @@ function setContent() {
   });
 }
 
-function textSubmit(e) {
-  if (event.key === 'Enter') {
-    guess();
-  }
-}
-
 function guess() {
+  if (guessed) {
+    document.getElementById("guess").value = "";
+    return;
+  }
   input = document.getElementById("guess").value;
   for (i=0; i<items.length; i++) {
     if (items[i].toUpperCase()===input.toUpperCase() && !guessed) {
@@ -153,6 +157,7 @@ function guess() {
       if (strike_count==4) {
         strike_count = 0;
         guessed = true;
+        document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! Answer is /r/"+items[0]+"</span>";
       }
       document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
     }
