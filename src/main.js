@@ -36,7 +36,6 @@ var SUBREDDITS = [
   "justneckbeardthings",
   "dontdeadopeninside",
   "thathappened",
-  "maliciouscompliance",
   "hmmm",
   "atbge",
   "bonehurtingjuice",
@@ -50,7 +49,22 @@ var SUBREDDITS = [
   "notmyjob",
   "boottoobig",
   "niceguys",
-  "evilbuildings"];
+  "evilbuildings",
+  "crappyoffbrands",
+  "justfuckmyshitup",
+  "penmanshipporn",
+  "dankchristianmemes",
+  "fakehistoryporn",
+  "assholedesign",
+  "choosingbeggars",
+  "coloringcorruptions",
+  "surrealmemes",
+  "perfectfit",
+  "natureisfuckinglit",
+  "tumblrinaction",
+  "dontyouknowwhoiam",
+  "ihavesex",
+  "restofthefuckingowl"];
 
 function init() {
   document.onkeydown = function(event) {
@@ -83,7 +97,7 @@ function getContent() {
       setContent();
     } else {
       guessed = true;
-      document.getElementById("image").innerHTML = "<error>Please Refresh or disable tracking protection</error>";
+      document.getElementById("image").innerHTML = "<error style=\"display:inline-block\">Please Refresh or disable tracking protection</error>";
       setTimeout(function() {getContent();},2000);
     }
   });

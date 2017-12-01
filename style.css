@@ -50,9 +50,9 @@ input[type=checkbox] {
 
 #image:before {
   content: ' ';
+  height:100%;
+  vertical-align:middle;
   display: inline-block;
-  vertical-align: middle;
-  height: 100%;
 }
 
 input[type=checkbox]:checked ~ label > #image {
@@ -143,6 +143,8 @@ input[type=button]:active{
 
 error {
   font-family: Montserrat;
+  line-height:100%;
+  vertical-align:middle;
   font-size: 200%;
   color: #5f99cf;
 }
