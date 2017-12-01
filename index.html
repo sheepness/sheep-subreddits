@@ -8,7 +8,7 @@
   <script src="https://use.fontawesome.com/e3a36dc0e7.js"></script>
 </head>
 <body onLoad="init()">
-  <script src="scripts/script.js"></script>
+  <script src="scripts/script.min.js"></script>
   <header>
       <div class="headertitle">
           <i class="fa fa-reddit" aria-hidden="true"></i>
@@ -18,10 +18,12 @@
     </footer>
     </header>
   <div id="container">
-    <input type="checkbox" id="zoomCheck">
-    <label for="zoomCheck">
-      <div id="image"></div>
-    </label>
+      <div id="imageContainer">
+        <input type="checkbox" id="zoomCheck">
+        <label for="zoomCheck">
+          <div id="image"></div>
+        </label>
+      </div>
       <div id="input">
         <input id="guess" type="text" onkeydown="textSubmit(this)" placeholder="Enter a subreddit"/>
         <input name="Submit" type="button" onclick="guess()" value="Submit"/>

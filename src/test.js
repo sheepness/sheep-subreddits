@@ -1,5 +1,3 @@
-// doesn't work on some browsers, need to switch to whatwg-fetch but don't know how without using import
-
 function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
   url = url.concat(name, '/top.json?sort=top&t=month');

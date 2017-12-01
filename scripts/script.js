@@ -1,7 +1,5 @@
 var IMAGE_DOMAINS = ["i.redd.it","i.imgur.com"];
 
-var strike_count = 0
-
 function filterDomains(listing) {
   // only images allowed
   var filtered = [];
@@ -23,13 +21,13 @@ function filterNsfw(listing) {
       }
   return filtered;
 }
-
-var items = [];
+;var items = [];
 var guessed = true;
 var score = 0;
 var LISTING = {};
 var DUPLICATE_LISTING = {};
 var IMAGE_ID = 0;
+var strike_count = 0;
 
 // Monthly Top Posts from these subreddits
 var SUBREDDITS = [
@@ -93,7 +91,7 @@ function getContent() {
 
   Promise.all(huh).then(function() {
     LISTING = filterDomains(LISTING);
-    LISTING = filterNsfw(LISTING); 
+    LISTING = filterNsfw(LISTING);
     if (LISTING.length!=0) {
       picked = Math.floor((Math.random() * LISTING.length));
       pickedData = LISTING[picked].data;
@@ -144,32 +142,27 @@ function guess() {
   input = document.getElementById("guess").value;
   for (i=0; i<items.length; i++) {
     if (items[i].toUpperCase()===input.toUpperCase() && !guessed) {
-      document.getElementById("answers").innerHTML = "<a target=\"_blank\" href=\"https://www.reddit.com/r/"+items[i]+"/\">/r/"+items[i]+"</a>";
+      document.getElementById("answers").innerHTML = "<a style=\"color:green\" target=\"_blank\" href=\"https://www.reddit.com/r/"+items[i]+"/\">/r/"+items[i]+"</a>";
       guessed = true;
       score++;
       strike_count = 0;
       document.getElementById("score").innerHTML = "Score: "+score;
       break;
-    } else {
+    } else if (i==(items.length-1)) {
       strike_count++;
       if (strike_count==4) {
         strike_count = 0;
         guessed = true;
-        document.getElementById("answers").innerHTML = "";
-        break;
-      } else {
-        document.getElementById("answers").innerHTML = "Strike "+strike_count;
       }
+      document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
     }
   }
   document.getElementById("guess").value = "";
   if (guessed) {
-    document.getElementById("answers").innerHTML = "Refreshing";
     setTimeout(function() {getContent();},2000);
   }
 }
-
-function fetchContent(name) {
+;function fetchContent(name) {
   url = 'https://www.reddit.com/r/';
   url = url.concat(name, '/top.json?sort=top&t=month');
 
