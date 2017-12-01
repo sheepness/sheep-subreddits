@@ -136,6 +136,7 @@ function guess() {
         guessed = true;
         document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! Answer is /r/"+items[0]+"</span>";
       }
+      else
       document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
     }
   }
