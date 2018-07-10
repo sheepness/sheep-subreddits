@@ -21,7 +21,9 @@ function filterNsfw(listing) {
       }
   return filtered;
 }
-;var items = [];
+;
+
+var items = [];
 var guessed = true;
 var score = 0;
 var LISTING = {};
@@ -197,6 +199,7 @@ function guess() {
       strike_count++;
       if (strike_count==4) {
         strike_count = 0;
+        score = 0;
         guessed = true;
         document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! Answer is /r/"+items[0]+"</span>";
       }
