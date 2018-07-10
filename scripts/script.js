@@ -111,7 +111,9 @@ var SUBREDDITS = [
   "youdontsurf",
   "nonononoyes",
   "yesyesyesyesno",
-  "publicfreakouts"
+  "publicfreakouts",
+  "blackmagicfuckery",
+  "therewasanattempt"
 ];
 
 function init() {
