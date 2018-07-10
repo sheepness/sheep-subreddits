@@ -87,7 +87,29 @@ var SUBREDDITS = [
   "tumblrinaction",
   "dontyouknowwhoiam",
   "ihavesex",
-  "restofthefuckingowl"];
+  "restofthefuckingowl",
+  "whitepeopletwitter",
+  "blackpeopletwitter",
+  "tinder",
+  "comedynecrophilia",
+  "awwtf",
+  "badwomensanatomy",
+  "breadstapledtotrees",
+  "creepypms",
+  "creepyasterisks",
+  "dadreflexes",
+  "goodfaketexts",
+  "idiotsfightingthings",
+  "ilikthebred",
+  "kidsarefuckingstupid",
+  "okbuddyretard",
+  "nukedmemes",
+  "nothowdrugswork",
+  "pornhubcomments",
+  "restofthefuckingowl",
+  "trippinthroughtime",
+  "youdontsurf"
+];
 
 function init() {
   document.onkeydown = function(event) {
