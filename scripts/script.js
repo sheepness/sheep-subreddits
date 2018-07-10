@@ -1,11 +1,11 @@
 var IMAGE_DOMAINS = ["i.redd.it","i.imgur.com"];
 
 function filterDomains(listing) {
-  // only images allowed
+  // only images (and gifs???) allowed
   var filtered = [];
   for (i=0; i<listing.length; i++)
     for (j=0; j<IMAGE_DOMAINS.length; j++)
-      if (listing[i].data.domain===IMAGE_DOMAINS[j]&&(listing[i].data.url.endsWith(".jpg")||listing[i].data.url.endsWith(".jpeg")||listing[i].data.url.endsWith(".png"))) {
+      if (listing[i].data.domain===IMAGE_DOMAINS[j]&&(listing[i].data.url.endsWith(".jpg")||listing[i].data.url.endsWith(".jpeg")||listing[i].data.url.endsWith(".png")||listing[i].data.url.endsWith(".gif")||listing[i] .data.url.endsWith(".webm"))) {
         filtered.push(listing[i]);
         continue;
       }
@@ -108,7 +108,10 @@ var SUBREDDITS = [
   "pornhubcomments",
   "restofthefuckingowl",
   "trippinthroughtime",
-  "youdontsurf"
+  "youdontsurf",
+  "nonononoyes",
+  "yesyesyesyesno",
+  "publicfreakouts"
 ];
 
 function init() {
