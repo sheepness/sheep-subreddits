@@ -1,7 +1,7 @@
 var IMAGE_DOMAINS = ["i.redd.it","i.imgur.com"];
 
 function filterDomains(listing) {
-  // only images (and gifs???) allowed
+  // added gif and webm support
   var filtered = [];
   for (i=0; i<listing.length; i++)
     for (j=0; j<IMAGE_DOMAINS.length; j++)
@@ -211,9 +211,11 @@ function guess() {
       if (strike_count==4) {
         strike_count = 0;
         score = 0;
+// scoring fix part 1
         guessed = true;
         document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! Answer is /r/"+items[0]+"</span>";
         document.getElementById("score").innerHTML = "Score: "+score;
+// scoring fix part 2
       }
       else
       document.getElementById("answers").innerHTML = "<span style=\"color:red\">Wrong! ("+(4-strike_count)+" tries left)</span>";
