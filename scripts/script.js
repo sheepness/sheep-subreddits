@@ -53,7 +53,11 @@ var SUBREDDITS = [
   "quityourbullshit",
   "oopsdidntmeanto",
   "comedycemetery",
+  "comedyhomicide",
+  "comedyheaven",
   "deepfriedmemes",
+  "nukedmemes",
+  "bigbangedmemes",
   "murderedbywords",
   "oldpeoplefacebook",
   "indianpeoplefacebook",
@@ -64,6 +68,7 @@ var SUBREDDITS = [
   "hmmm",
   "atbge",
   "bonehurtingjuice",
+  "bonehealingjuice",
   "sbubby",
   "fellowkids",
   "im14andthisisdeep",
@@ -115,7 +120,13 @@ var SUBREDDITS = [
   "yesyesyesyesno",
   "publicfreakouts",
   "blackmagicfuckery",
-  "therewasanattempt"
+  "therewasanattempt",
+  "gocommitdie",
+  "gamersriseup",
+  "yescompanionimbecil",
+  "suicidebywords",
+  "wokekids",
+  "bossfight"
 ];
 
 function init() {
